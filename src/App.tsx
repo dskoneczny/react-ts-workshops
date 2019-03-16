@@ -1,40 +1,46 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import { Button } from 'reactstrap';
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem 
+} from 'reactstrap';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+
+// GITHUB URL:
+// https://github.com/dskoneczny/react-ts-workshops
 
 const Home = () => <div>HOME!</div>;
 const Test = () => <div>TEST!</div>;
 
 class App extends Component {
+  public state = {
+    title: "HTD Academy"
+  }
   public render() {
     return (
       <Router>
-        <div className='App'>
-          <header className='App-header'>
-            <img src={logo} className='App-logo' alt='logo' />
-            <p>
-              Edit <code>src/App.tsx</code> and save to reload.
-            </p>
-            <a
-              className='App-link'
-              href='https://reactjs.org'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-              Learn React
-            </a>
-
-            <Link to='/'>Home</Link>
-            <Link to='/test'>Test</Link>
-
-            <Button>Click ME!!!</Button>
-            <Switch>
-              <Route exact={true} path='/' component={Home} />
-              <Route exact={true} path='/test' component={Test} />
-            </Switch>
-          </header>
+        <div className='app'>
+          <Navbar color="light">
+            <NavbarBrand href="/">{this.state.title}</NavbarBrand>
+            <Nav className="ml-auto" navbar>
+            <NavItem>
+              <NavLink href="/rooms">Pokoje</NavLink>
+            </NavItem>
+            </Nav>
+          </Navbar>
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route exact path='/test' component={Test} />
+          </Switch>
         </div>
       </Router>
     );
@@ -42,3 +48,13 @@ class App extends Component {
 }
 
 export default App;
+
+
+
+
+
+
+
+
+
+
