@@ -1,14 +1,14 @@
-import React from 'react'
-import { Card, CardBody, CardTitle, Button, Col } from 'reactstrap'
+import React from 'react';
+import { Card, CardBody, CardTitle, Button, Col } from 'reactstrap';
 
 interface SingleRoomsProps {
-  name: string
+  name: string;
 }
 
 class SingleRoom extends React.PureComponent<SingleRoomsProps> {
   public render() {
     return (
-      <Col md="4">
+      <Col md='4'>
         <Card>
           <CardBody>
             <CardTitle>{this.props.name}</CardTitle>
@@ -16,8 +16,8 @@ class SingleRoom extends React.PureComponent<SingleRoomsProps> {
           </CardBody>
         </Card>
       </Col>
-    )
+    );
   }
 }
 
-export default SingleRoom
+export default SingleRoom;
