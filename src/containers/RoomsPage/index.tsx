@@ -9,13 +9,28 @@ export class RoomsPage extends React.Component {
       }
     ]
   }
+
+  public addRoom = () => {
+    const rooms = this.state.rooms
+
+    rooms.push({
+      id: this.state.rooms.length,
+      name: "Nowa sala"
+    })
+
+    this.setState({
+      rooms: rooms
+    })
+  }
+
   public render() {
     return (
       <Container>
+        <Button style={{marginBottom: 20}} onClick={this.addRoom}>Dodaj pokoj</Button>
         <Row>
-          {this.state.rooms.map(item => {
+          {this.state.rooms.map((item) => {
             return (
-              <Col md="4">
+              <Col md="4" key={item.id}>
                 <Card>
                   <CardBody>
                     <CardTitle>{item.name}</CardTitle>
