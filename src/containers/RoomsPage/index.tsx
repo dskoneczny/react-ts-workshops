@@ -1,6 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux'
 import { Container, Row, Card, CardBody, CardTitle, Button, Col } from 'reactstrap';
 import SingleRoom from '../../components/SingleRoom';
+import { RoomReducerState } from '../../reducers/roomReducer';
 
 export class RoomsPage extends React.Component {
   public state = {
@@ -41,4 +43,22 @@ export class RoomsPage extends React.Component {
   }
 }
 
-export default RoomsPage;
+export interface ReducerState {
+  roomReducer: RoomReducerState
+}
+
+const mapStateToProps = (state: ReducerState) => {
+  return ({
+    rooms: state.roomReducer.rooms
+  })
+}
+
+export default connect(mapStateToProps)(RoomsPage);
+
+
+
+
+
+
+
+
