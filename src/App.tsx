@@ -26,13 +26,13 @@ class App extends Component {
               Learn React
             </a>
 
-            <Link to="/">Home</Link>
-            <Link to="/test">Test</Link>
+            <Link to='/'>Home</Link>
+            <Link to='/test'>Test</Link>
 
             <Button>Click ME!!!</Button>
             <Switch>
-              <Route exact path="/" component={Home} />
-              <Route exact path="/test" component={Test} />
+              <Route exact={true} path='/' component={Home} />
+              <Route exact={true} path='/test' component={Test} />
             </Switch>
           </header>
         </div>

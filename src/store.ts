@@ -1,21 +1,21 @@
 // SRC/STORE.TS
-import { createStore, applyMiddleware } from "redux";
-import thunk from "redux-thunk";
-import reducers from "./reducers/index";
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import reducers from './reducers/index';
 
 const middlewares = [thunk];
 
-if(process.env.NODE_ENV === 'development') {
+if (process.env.NODE_ENV === 'development') {
   const { logger } = require('redux-logger');
 
   middlewares.push(logger);
 }
 
 export default () => {
-  let store = createStore(
+  const store = createStore(
     reducers,
-    applyMiddleware(...middlewares)
+    applyMiddleware(...middlewares),
   );
 
   return { store };
-}
+};
