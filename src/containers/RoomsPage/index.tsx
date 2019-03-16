@@ -34,7 +34,7 @@ export class RoomsPage extends React.Component {
             return (
               <SingleRoom key={item.id} name={item.name} />
             )
-            })}
+          })}
         </Row>
       </Container>
     )
