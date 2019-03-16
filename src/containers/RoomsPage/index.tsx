@@ -2,37 +2,22 @@ import React from 'react';
 import { connect } from 'react-redux'
 import { Container, Row, Card, CardBody, CardTitle, Button, Col } from 'reactstrap';
 import SingleRoom from '../../components/SingleRoom';
-import { RoomReducerState } from '../../reducers/roomReducer';
+import { RoomReducerState, Room } from '../../reducers/roomReducer';
 
-export class RoomsPage extends React.Component {
-  public state = {
-    rooms: [
-      {
-        id: 0,
-        name: 'Mała sala konferencyjna',
-      },
-    ],
-  };
+interface RoomsPageProps {
+  rooms: Room[]
+}
 
+export class RoomsPage extends React.Component<RoomsPageProps> {
   public addRoom = () => {
-    const rooms = this.state.rooms;
-
-    rooms.push({
-      id: this.state.rooms.length,
-      name: 'Nowa sala',
-    });
-
-    this.setState({
-      rooms,
-    });
+    
   }
-
   public render() {
     return (
       <Container>
         <Button style={{marginBottom: 20}} onClick={this.addRoom}>Dodaj pokoj</Button>
         <Row>
-          {this.state.rooms.map((item) => {
+          {this.props.rooms.map((item) => {
             return (
               <SingleRoom key={item.id} name={item.name} />
             );
