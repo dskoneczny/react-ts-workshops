@@ -1,3 +1,4 @@
+import produce from "immer"
 
 export interface Room {
   id: number;
@@ -29,5 +30,24 @@ const INITIAL_STATE = {
 };
 
 export default(state: RoomReducerState = INITIAL_STATE, action: RoomActionType) => {
-  return state;
+  return produce(state, draft => {
+    switch(action.type) {
+      case 'ADD_ROOM': {
+        draft.rooms.push({
+          id: draft.rooms.length,
+          name: 'Nowa sala',
+        });
+        return draft;
+      }
+    }
+    return state;
+  })
 };
+
+
+
+
+
+
+
+
