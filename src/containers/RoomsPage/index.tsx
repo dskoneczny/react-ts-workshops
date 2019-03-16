@@ -3,14 +3,16 @@ import { connect } from 'react-redux'
 import { Container, Row, Card, CardBody, CardTitle, Button, Col } from 'reactstrap';
 import SingleRoom from '../../components/SingleRoom';
 import { RoomReducerState, Room } from '../../reducers/roomReducer';
+import { addRoom } from '../../actions/roomActions'
 
 interface RoomsPageProps {
-  rooms: Room[]
+  rooms: Room[];
+  addRoom: () => void;
 }
 
 export class RoomsPage extends React.Component<RoomsPageProps> {
   public addRoom = () => {
-    
+    this.props.addRoom();
   }
   public render() {
     return (
@@ -38,7 +40,15 @@ const mapStateToProps = (state: ReducerState) => {
   })
 }
 
-export default connect(mapStateToProps)(RoomsPage);
+const mapDispatchToProps = {
+  addRoom,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(RoomsPage);
+
+
+
+
 
 
 
