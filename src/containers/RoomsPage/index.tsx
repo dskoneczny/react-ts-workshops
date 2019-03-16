@@ -1,7 +1,9 @@
 import React from 'react';
 
-class RoomsPage extends React.Component {
+export class RoomsPage extends React.Component {
   public render() {
     return "Rooms Page"
   }
 }
+
+export default RoomsPage

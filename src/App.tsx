@@ -15,6 +15,8 @@ import {
 } from 'reactstrap';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
+import RoomsPage from './containers/RoomsPage/index'
+
 // GITHUB URL:
 // https://github.com/dskoneczny/react-ts-workshops
 
@@ -39,6 +41,7 @@ class App extends Component {
           </Navbar>
           <Switch>
             <Route exact path='/' component={Home} />
+            <Route exact path="/rooms" component={RoomsPage} />
             <Route exact path='/test' component={Test} />
           </Switch>
         </div>
