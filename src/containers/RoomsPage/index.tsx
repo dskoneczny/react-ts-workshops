@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row } from 'reactstrap'
+import { Container, Row, Card, CardBody, CardTitle, Button, Col } from 'reactstrap'
 export class RoomsPage extends React.Component {
   state = {
     rooms: [
@@ -14,8 +14,17 @@ export class RoomsPage extends React.Component {
       <Container>
         <Row>
           {this.state.rooms.map(item => {
-            return item.name
-          })}
+            return (
+              <Col md="4">
+                <Card>
+                  <CardBody>
+                    <CardTitle>{item.name}</CardTitle>
+                    <Button>Button</Button>
+                  </CardBody>
+                </Card>
+              </Col>
+            )
+            })}
         </Row>
       </Container>
     )
