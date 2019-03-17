@@ -60,6 +60,7 @@ export default(state: RoomReducerState = INITIAL_STATE, action: RoomActionType) 
         const previousLikesCount = draft.rooms[roomIndex].likes + 1;
         draft.rooms[roomIndex].likes = previousLikesCount;
 
+        return draft;
       }
     }
     return state;
