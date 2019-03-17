@@ -55,10 +55,13 @@ export default(state: RoomReducerState = INITIAL_STATE, action: RoomActionType) 
       case 'ADD_LIKE': {
         const id = action.payload.id;
 
+        // FIND INDEX IN ROOMS
         const roomIndex = draft.rooms.findIndex((item: Room) => item.id === id);
 
-        const previousLikesCount = draft.rooms[roomIndex].likes + 1;
-        draft.rooms[roomIndex].likes = previousLikesCount;
+        // DECLARE LIKES COUNT
+        const newLikesCount = draft.rooms[roomIndex].likes + 1;
+        // INCREASE LIKES COUNT
+        draft.rooms[roomIndex].likes = newLikesCount;
 
         return draft;
       }
