@@ -11,13 +11,32 @@ interface RoomsPageProps {
 }
 
 export class RoomsPage extends React.Component<RoomsPageProps> {
+  public state = {
+    roomName: '',
+  };
+
   public addRoom = () => {
     this.props.addRoom();
   }
+
+  public updateRoomName = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const roomName = e.target.value;
+    this.setState({ roomName });
+  }
+
   public render() {
     return (
       <Container>
-        <Button style={{marginBottom: 20}} onClick={this.addRoom}>Dodaj pokoj</Button>
+        <div>
+          {this.state.roomName}
+          <br />
+          <input
+            type='text'
+            value={this.state.roomName}
+            onChange={(e) => this.updateRoomName(e)}
+          />
+          <button>Dodaj pokój</button>
+        </div>
         <Row>
           {this.props.rooms.map((item) => {
             return (
