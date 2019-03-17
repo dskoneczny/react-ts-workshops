@@ -27,7 +27,6 @@ class SingleRoom extends React.PureComponent<SingleRoomsProps> {
             <div>
               Likes: {this.props.likes}
             </div>
-            <Button onClick={this.addLike}>Like</Button>
             <Button onClick={this.deleteRoom}>Usuń pokój</Button>
           </CardBody>
         </Card>
