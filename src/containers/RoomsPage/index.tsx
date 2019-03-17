@@ -43,7 +43,13 @@ export class RoomsPage extends React.Component<RoomsPageProps> {
         <Row>
           {this.props.rooms.map((item) => {
             return (
-              <SingleRoom key={item.id} name={item.name} />
+              <SingleRoom
+                addLike={}
+                key={item.id}
+                id={item.id}
+                likes={10}
+                name={item.name}
+              />
             );
           })}
         </Row>

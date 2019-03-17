@@ -7,3 +7,12 @@ export const addRoom = (roomName: string) => {
     type: 'ADD_ROOM',
   });
 };
+
+export const addLike = (id: number) => {
+  return ({
+    payload: {
+      id,
+    },
+    type: 'ADD_LIKE',
+  });
+};
