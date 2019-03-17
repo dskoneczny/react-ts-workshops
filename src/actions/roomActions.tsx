@@ -16,3 +16,12 @@ export const addLike = (id: number) => {
     type: 'ADD_LIKE',
   });
 };
+
+export const deleteRoom = (id: number) => {
+  return ({
+    payload: {
+      id,
+    },
+    type: 'DELETE_ROOM',
+  });
+};

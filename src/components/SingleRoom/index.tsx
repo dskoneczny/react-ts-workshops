@@ -6,12 +6,17 @@ interface SingleRoomsProps {
   name: string;
   likes: number;
   addLike: (id: number) => void;
+  deleteRoom: (id: number) => void;
 }
 
 class SingleRoom extends React.PureComponent<SingleRoomsProps> {
   public addLike = () => {
     this.props.addLike(this.props.id);
-  };
+  }
+
+  public deleteRoom = () => {
+    this.props.deleteRoom(this.props.id);
+  }
 
   public render() {
     return (
@@ -23,6 +28,7 @@ class SingleRoom extends React.PureComponent<SingleRoomsProps> {
               Likes: {this.props.likes}
             </div>
             <Button onClick={this.addLike}>Like</Button>
+            <Button onClick={this.deleteRoom}>Usuń pokój</Button>
           </CardBody>
         </Card>
       </Col>

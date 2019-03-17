@@ -3,12 +3,13 @@ import { connect } from 'react-redux'
 import { Container, Row, Card, CardBody, CardTitle, Button, Col } from 'reactstrap';
 import SingleRoom from '../../components/SingleRoom';
 import { RoomReducerState, Room } from '../../reducers/roomReducer';
-import { addRoom, addLike } from '../../actions/roomActions';
+import { addRoom, addLike, deleteRoom } from '../../actions/roomActions';
 
 interface RoomsPageProps {
   rooms: Room[];
   addRoom: (roomName: string) => void;
   addLike: (id: number) => void;
+  deleteRoom: (id: number) => void;
 }
 
 export class RoomsPage extends React.Component<RoomsPageProps> {
@@ -46,6 +47,7 @@ export class RoomsPage extends React.Component<RoomsPageProps> {
             return (
               <SingleRoom
                 addLike={this.props.addLike}
+                deleteRoom={this.props.deleteRoom}
                 key={item.id}
                 id={item.id}
                 likes={item.likes}
@@ -72,6 +74,7 @@ const mapStateToProps = (state: ReducerState) => {
 const mapDispatchToProps = {
   addLike,
   addRoom,
+  deleteRoom,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(RoomsPage);

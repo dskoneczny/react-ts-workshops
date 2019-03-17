@@ -24,7 +24,14 @@ export interface AddLike {
   };
 }
 
-export type RoomActionType = AddRoomType | AddLike;
+export interface DeleteRoom {
+  type: 'DELETE_ROOM';
+  payload: {
+    id: number;
+  };
+}
+
+export type RoomActionType = AddRoomType | AddLike | DeleteRoom;
 
 const INITIAL_STATE = {
   rooms: [
@@ -46,7 +53,7 @@ export default(state: RoomReducerState = INITIAL_STATE, action: RoomActionType) 
     switch (action.type) {
       case 'ADD_ROOM': {
         draft.rooms.push({
-          id: draft.rooms.length,
+          id: Date.now(),
           likes: 0,
           name: action.payload.roomName,
         });
@@ -62,6 +69,14 @@ export default(state: RoomReducerState = INITIAL_STATE, action: RoomActionType) 
         const newLikesCount = draft.rooms[roomIndex].likes + 1;
         // INCREASE LIKES COUNT
         draft.rooms[roomIndex].likes = newLikesCount;
+
+        return draft;
+      }
+
+      case 'DELETE_ROOM': {
+        const id = action.payload.id;
+
+        draft.rooms = draft.rooms.filter((item: Room) => item.id !== id);
 
         return draft;
       }
