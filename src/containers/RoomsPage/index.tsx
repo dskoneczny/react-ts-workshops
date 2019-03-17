@@ -17,6 +17,9 @@ export class RoomsPage extends React.Component<RoomsPageProps> {
 
   public addRoom = () => {
     this.props.addRoom(this.state.roomName);
+    this.setState({
+      roomName: '',
+    });
   }
 
   public updateRoomName = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -50,7 +53,7 @@ export class RoomsPage extends React.Component<RoomsPageProps> {
 }
 
 export interface ReducerState {
-  roomReducer: RoomReducerState
+  roomReducer: RoomReducerState;
 }
 
 const mapStateToProps = (state: ReducerState) => {
