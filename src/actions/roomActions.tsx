@@ -1,7 +1,9 @@
 
-export const addRoom = () => {
+export const addRoom = (roomName: string) => {
   return ({
-    payload: {},
+    payload: {
+      roomName,
+    },
     type: 'ADD_ROOM',
   });
 };

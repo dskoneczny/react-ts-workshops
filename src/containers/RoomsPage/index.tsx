@@ -7,7 +7,7 @@ import { addRoom } from '../../actions/roomActions'
 
 interface RoomsPageProps {
   rooms: Room[];
-  addRoom: () => void;
+  addRoom: (roomName: string) => void;
 }
 
 export class RoomsPage extends React.Component<RoomsPageProps> {
@@ -16,7 +16,7 @@ export class RoomsPage extends React.Component<RoomsPageProps> {
   };
 
   public addRoom = () => {
-    this.props.addRoom();
+    this.props.addRoom(this.state.roomName);
   }
 
   public updateRoomName = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -33,9 +33,9 @@ export class RoomsPage extends React.Component<RoomsPageProps> {
           <input
             type='text'
             value={this.state.roomName}
-            onChange={(e) => this.updateRoomName(e)}
+            onChange={this.updateRoomName}
           />
-          <button>Dodaj pokój</button>
+          <button onClick={this.addRoom}>Dodaj pokój</button>
         </div>
         <Row>
           {this.props.rooms.map((item) => {
